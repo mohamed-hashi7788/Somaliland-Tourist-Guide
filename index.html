@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somaliland Tourist Guide</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+           background: url('https://live.staticflickr.com/868/41271634061_6275c9aafc_b.jpg') no-repeat center center/cover;
+            color: #222;
+        }
+        header {
+            background: linear-gradient(90deg, #4caf50, #81c784);
+            color: blue;
+            width: 100%;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid #388e3c;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            animation: slide 10s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 90%;
+            margin-top: 120px; /* Adjusted to account for the fixed header */
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h2 {
+            color: #4caf50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            word-wrap: break-word;
+        }
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+        label {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        select, button {
+            padding: 0.8rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        select {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        select:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+        button {
+            background: linear-gradient(90deg, #ff5722, #ff9800);
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        .info {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f9fbe7;
+            border: 2px solid #cddc39;
+            border-radius: 15px;
+            display: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s;
+        }
+        .info img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-top: 1rem;
+            border-radius: 15px;
+            border: 3px solid #cddc39;
+            transition: transform 0.3s;
+        }
+        .info img:hover {
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        footer {
+            margin-top: auto;
+            background: #4caf50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+        footer a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Somaliland Tourist Guide 🦁🐘🌊🏞️🖼️️️</h1>
+    </header>
+    <div class="container">
+        <h2>Explore the Beauty of Somaliland</h2>
+        <label for="places">Select a place to visit:</label>
+        <select id="places">
+            <option value="">--Choose a place--</option>
+            <option value="lasgeel">Las Geel</option>
+            <option value="berbera">Berbera Beaches</option>
+            <option value="hargeisa">Hargeisa City</option>
+            <option value="lamadaya">Lamadaya Waterfalls</option>
+        </select>
+        <button onclick="showInfo()">Show Info</button>
+        <div id="info" class="info"></div>
+    </div>
+
+    <script>
+        function showInfo() {
+            const places = document.getElementById('places');
+            const info = document.getElementById('info');
+
+            switch (places.value) {
+                case 'lasgeel':
+                    info.innerHTML = `
+                        <p><strong>Las Geel</strong> is a site of ancient cave paintings dating back thousands of years, showcasing the history and culture of Somaliland.</p>
+                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/79/f9/21/travel-tip-explore-laas.jpg?w=900&h=-1&s=1" alt="Las Geel">
+                    `;
+                    break;
+                case 'berbera':
+                    info.innerHTML = `
+                        <p><strong>Berbera</strong> is known for its stunning beaches along the Gulf of Aden, offering a perfect spot for relaxation and swimming.</p>
+                        <img src="https://sandee.com/_next/image?url=https%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipMHzpZNXHqM3Lmp_B-ZfUAFqU-EkXVImO26X_Mk%3Ds1600-k-no&w=3840&q=75" alt="Berbera Beaches">
+                    `;
+                    break;
+                case 'hargeisa':
+                    info.innerHTML = `
+                        <p><strong>Hargeisa</strong>, the capital of Somaliland, is a bustling city known for its vibrant markets and rich cultural heritage.</p>
+                        <img src="https://pbs.twimg.com/media/GKKtWUeXwAAEohI.jpg" alt="Hargeisa City">
+                    `;
+                    break;
+                case 'lamadaya':
+                    info.innerHTML = `
+                        <p><strong>Lamadaya Waterfalls</strong>, located in the Cal Madow mountain range, provide a serene and breathtaking natural attraction.</p>
+                        <img src="https://pbs.twimg.com/media/ElBqfwYXEAAvZLp.jpg" alt="Lamadaya Waterfalls">
+                    `;
+                    break;
+                default:
+                    info.innerHTML = "";
+                    break;
+            }
+
+            if (places.value) {
+                info.style.display = 'block';
+                info.style.opacity = 1;
+            } else {
+                info.style.display = 'none';
+                info.style.opacity = 0;
+            }
+        }
+    </script>
+ <footer>
+        <p>&copy; 2024 Somaliland Tourist Guide. All rights reserved. | <a href="terms.html">Terms & Conditions</a></p> 
+    </
+    </html>
+
